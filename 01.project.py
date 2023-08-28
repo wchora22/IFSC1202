@@ -1,1 +1,2 @@
-print("Enter the Length of Time in Days: ")
+weeks= 52
+days= 365
