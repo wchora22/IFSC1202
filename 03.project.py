@@ -1,1 +1,1 @@
-num1= float(input("Enter first number: "))
+num1= int(input("Enter first number: "))
