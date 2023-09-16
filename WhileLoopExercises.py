@@ -2,9 +2,9 @@ n =0
 n2=0
 n3=0
 count=0
-n = int(input("Enter a number (CR to quit): "))
-    while n != 0:
-    if n != 0:
+while n != 0:
+    n = int(input("Enter a number (CR to quit): "))
+        if n != 0:
         n2=n
     if n>n2:
         n3 += 1
