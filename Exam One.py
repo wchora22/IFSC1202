@@ -5,13 +5,16 @@ for r in range(startofrange,endofrange+1):
     num=r
     length=0
     while num >0:
-        num//=100
+        num//=10
         length=length+1
     num=r
     sum=0
     while num>0:
-        digit=num%3
-        num//=100
-        sum = sum + digit**length
+        dig=num%10
+        num//=10
+        prod=1
+        for h in range(1, dig+1):      
+            prod = prod*dig
+        sum=sum+prod
     if sum == r:
         print (r)
