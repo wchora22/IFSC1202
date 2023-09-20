@@ -12,9 +12,9 @@ for r in range(startofrange,endofrange+1):
     while num>0:
         dig=num%10
         num//=10
-        prod=1
+        product=1
         for h in range(1, dig+1):      
-            prod = prod*dig
-        sum=sum+prod
+            factorial = product*dig
+        sum=sum+product
     if sum == r:
         print (r)
