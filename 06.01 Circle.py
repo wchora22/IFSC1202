@@ -1,6 +1,6 @@
 from math import pi
 file1= open("06.01 Radius.txt", "r")
-radiusData=file1.readlines()
+radiusData=file1.read()
 header=['Radius','Diameter','Area']
 file1.close()
 result=[]
