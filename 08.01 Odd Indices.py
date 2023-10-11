@@ -1,6 +1,7 @@
 values= input("Enter values seperated by spaces: ")
-lst=values.split(' ')
-for i in range(0,len(lst)):
-    if i<len(lst)-1:
-        if int(lst[i+1])>int(lst[i]):
-            print(int(lst[i+1]))
+input_list=values.split()
+int_list = []
+for i in range(len(input_list)):
+    int_list.append(int(input_list[i]))
+for i in range(1, len(int_list),2):
+    print(int_list[i])
