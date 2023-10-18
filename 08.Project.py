@@ -7,4 +7,4 @@ while t != ' ':
         if filestringlist[i].find(t) != -1:
             print(filestringlist[i])
     t= input("Enter search term: ")
-for i in 
+for i in range()
