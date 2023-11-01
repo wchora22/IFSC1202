@@ -2,7 +2,7 @@ from math import pi
 
 class Ball ():
 	
-	def __init__(self, balltype="Basketball", diameter=9.51, pressure=8.0):
+	def __init_(self, balltype="Basketball", diameter=9.51, pressure=8.0):
 
 		self.BallType = balltype
 		self.Diameter = diameter
