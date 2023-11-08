@@ -46,3 +46,5 @@ def Lettergrade(self, Student):
     elif(avg<60):
         grade="F"
     return grade
+
+scorefile=open("10.Project Student Scores.txt",'r')
