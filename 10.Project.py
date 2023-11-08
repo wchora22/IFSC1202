@@ -1,51 +1,48 @@
 class Student():
     def __init__(self,firstname,lastname,tnumber, scores):
-        self.firstname=firstname
-        self.lastname=lastname
-        self.tnumber= tnumber
-        self.scores= scores
+        self.Firstname=firstname
+        self.Lastname=lastname
+        self.TNumber= tnumber
+        self.Grades= scores
+    def RunningAverage(self):
+        scores = []
+        for grade in self.Grades:
+            if grade!='':
+                scores.append(int(grade))
+            else:
+                scores.append(0)
+        return sum(scores)/len(scores)
+    def TotalAverage(self):
+        scores=[]
+        for grade in self.Grades:
+            if grade !='':
+                scores.append(int(grade))
+        return sum(scores)/len(scores)
+    def LetterGrade(self):
+        avg= self.RunningAverage()
+        if(avg>=90):
+            return"A"
+        elif(avg>=80 and avg<90):
+            return"B"
+        elif(avg>=70 and avg<80):
+            return"C"
+        elif(avg>=60 and avg<70):
+            return"D"
+        elif(avg<60):
+            return"F"
+def main():
+    filename="10.Project Student Scores.txt"
+    stud_list=[]
+    with open(filename,'r') as infile:
+        for line in infile:
+            line=line.strip().split(',')
+            s= Student(line[0], line[1], line[2], line[3:])
+            stud_list.append(s)
 
-def RunningAverage(self):
-    list = []
-    x=0
-    for x in range(len(self.scores)):
-        if(self.scores[x]=='\n'):
-            a=1
-        elif(self.scores[x]=='\n'):
-            a=2
-        else:
-            list.append(self.scores[x])
-    avg=sum(list)/len(list)
-    return avg
-def TotalAverage(self):
-    list=[]
-    x=0
-    for x in range(len(self.scores)):
-        if(self.scores[x]==''):
-            list.append(0)
-        elif(self.scores[x]=='\n'):
-            list.append(0)
-        else:
-            list.append(self.score[x])
-    
-    avg= sum(list)/len(list)
-    print(list)
-    return avg
 
-def Lettergrade(self, Student):
-    avg= Student
-    avg = round(avg)
-    if(avg>=90):
-        grade="A"
-    elif(avg>=80 and avg<90):
-        grade="B"
-    elif(avg>=70 and avg<80):
-        grade="C"
-    elif(avg>=60 and avg<70):
-        grade="D"
-    elif(avg<60):
-        grade="F"
-    return grade
-scorelist=[]
-scorefile=open("10.Project Student Scores.txt",'r')
-for i 
+    print('{:>10}{:>10}{:>14}{:>15}{:>15}{:>10}'.format('First','Last','ID','Running','Semester','Letter'))
+    print('{:>10}{:>10}{:>14}{:>15}{:>15}{:>10}'.format('Name','Name','Number','Average','Average','Grade'))
+    print('-' *75)
+    for std in stud_list:
+        print('{:>10}{:>10}{:>14}{:>15.2f}{:>15.2f}{:>10}'.format(std.Firstname, std.Lastname,std.TNumber, std.TotalAverage(), std.RunningAverage(), std.LetterGrade()))
+main()
