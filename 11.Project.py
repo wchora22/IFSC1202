@@ -4,39 +4,27 @@ class Student():
         self.FirstName=firstname
         self.LastName=lastname
         self.TNumber=tnumber
-        self.Grades= []
-    
+        self.Grades=[]
     def RunningAverage(self):
-        list = []
-        x=0
+        total= 0
+        count = 0
         for x in range(len(self.Grades)):
             if(self.Grades[x]!=''):
-                a=1
-            
-            elif(self.Grades[x]=='\n'):
-                a=2
-            else:
-                list.append(self.Grades[x])
-
-        avg=sum(list)/len(list)
-
+                total = total + float(self.Grades[x])
+                count = count + 1
+        avg=total/count
         return avg
     def TotalAverage(self):
-        list=[]
-        x=0
+        total= 0
+        count=0
         for x in range(len(self.Grades)):
-            if(self.Grades[x]==''):
-                list.append(0)
-            elif(self.Grades[x]=='\n'):
-                list.append(0)
-            else:
-                list.append(self.Grades[x])
-        avg =sum(list)/len(list)
-        print(list)
+            if(self.Grades[x]!=''):
+                total = total + float(self.Grades[x])
+            count = count + 1
+        avg=total/count
         return avg
-    def LetterGrade(self, Student):
-        avg=Student
-        avg=round(avg)
+    def LetterGrade(self):
+        avg=self.TotalAverage()
         if(avg>=90):
             return "A"
         elif(avg>=80 and avg<90):
@@ -47,12 +35,9 @@ class Student():
             return "D"
         elif(avg<60):
             return "F"
-        return grade
-
 class StudentList:
     def __init__(self):
         self.StudentList=[]
-    
     def add_student(self, FirstName, LastName, TNumber):
         student= Student(FirstName, LastName, TNumber)
         self.StudentList.append(student)
@@ -62,9 +47,11 @@ class StudentList:
                 return index
         return -1
     def print_student_list(self):
-        print("{:<12} {:<12} {:<12} {:<12} {:<12} {:<12}".format("First Name", "Last Name", "TNumber", "Running Average", "Semester Average", "Letter Grade" ))
+        print('{:<12} {:<12} {:<12} {:<12} {:<12} {:<12}'.format('First', 'Last', 'ID', 'Running', 'Semester', 'Letter'))
+        print('{:<12} {:<12} {:<12} {:<12} {:<12} {:<12}'.format('Name', 'Name', 'Number', 'Average', 'Average', 'Grade' ))
+        print('-' *12, '-' *12, '-' *12, '-' *12, '-' *12, '-' *12)
         for student in self.StudentList:
-            print("{:<12} {:<12} {:<12} {:<12.2f} {:<12.2f} {:<12}".format(student.FirstName, student.LastName, student.TNumber, student.RunningAverage(), student.TotalAverage(), student.LetterGrade()))
+            print('{:<12} {:<12} {:<12} {:<12.2f} {:<12.2f} {:<12}'.format(student.FirstName, student.LastName, student.TNumber, student.RunningAverage(), student.TotalAverage(), student.LetterGrade()))
 
     def add_student_from_file(self, filename):
         with open(filename, 'r') as file:
