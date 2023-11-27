@@ -16,6 +16,8 @@ class Userlist():
             line=userfile.readline()
     def WriterUserFile(self):
         userfile=open(self.filename, "w")
+        for i in range(len):
+
     def DisplayUserlist(self):
         for i in range(len(self.Userlist)):
             print(self.Userlist[i].Username,self.Userlist[i].Password)
