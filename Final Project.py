@@ -28,6 +28,7 @@ class Userlist():
     def AddUser(username,password):
 
     def DeleteUser(username):
+        while line != "":
 
     def Strength(password):
 
