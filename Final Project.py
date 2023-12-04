@@ -16,24 +16,30 @@ class Userlist():
             line=userfile.readline()
     def WriterUserFile(self):
         userfile=open(self.filename, "w")
-        for i in range(len):
-
+        print()
     def DisplayUserlist(self):
         for i in range(len(self.Userlist)):
             print(self.Userlist[i].Username,self.Userlist[i].Password)
-    def FindUsername(username):
-
-    def ChangePassword(password):
-
-    def AddUser(username,password):
-
-    def DeleteUser(username):
-        while line != "":
-
-    def Strength(password):
-
+    def FindUsername(self,username):
+        for i in range(self.Userlist):
+            if self.Userlist[i].Username==username:
+                return i
+        return -1
+    def ChangePassword(self, username,password):
+        index=self.FindUsername(username)
+        if index==-1:
+            print("Username Not Found")
+        else:
+            password=input("Enter Password:")
+            strength=self.Strength(password)
+            if strength >=5:
+                self.Userlist[i].Password=password
+    def AddUser(self,username,password):
+        return
+    def DeleteUser(self, username):
+        return
+    def Strength(self, password):
+        return 5
 MyUserlist=Userlist("Final Project Passwords.txt")
 MyUserlist.ReadUserFile()
 MyUserlist.DisplayUserlist()
-MyUserlist.WriterUserFile()
-print()
